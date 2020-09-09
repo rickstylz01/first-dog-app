@@ -3,16 +3,8 @@
 function getDogImage() {
   fetch('https://dog.ceo/api/breeds/image/random')
     .then(response => response.json())
-    .then(responseJson => displayresults(responseJson))
+    .then(responseJson => console.log(responseJson))
     .catch(error => alert('Something went wrong. Try again later.'))
-}
-
-function displayResults(responseJson) {
-  console.log(responseJson);
-  //replace existing image with new one
-  $('.results-img').replaceWith(`<img src="${responseJson.message}" class="results-img">`)
-  //display the results section
-  $('.results').removeClass('hidden');
 }
 
 function watchForm() {
@@ -24,5 +16,5 @@ function watchForm() {
 
 $(function() {
   console.log('App loaded! Waiting for submit!');
-
+  watchForm();
 })
